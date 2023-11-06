@@ -1,4 +1,3 @@
-
 <h1>Resources</h1>
 - <a href="https://pytest-bdd.readthedocs.io/en/latest/">Official pytest-bdd docs</a>
 

@@ -5,5 +5,3 @@ Feature: API tests
         When A GET request is made
         Then The response status code should be 200
         And The response should contain "value"
-    
-    Scenario: 

@@ -1,23 +1,24 @@
-from pytest_bdd import parsers, scenario, given, when, then
+from pytest_bdd import parsers, scenario, given, scenarios, when, then
 from playwright.sync_api import *
 import pytest
 
 
 @pytest.fixture(scope="session")
-def get_request_context(playwright: Playwright):
+def request_context(playwright: Playwright):
     request_context = playwright.request.new_context()
     yield request_context
     request_context.dispose()
 
 
-@scenario("api.feature", "User should get a random Chuck norris Joke.")
-def test_api():
-    pass
+# @scenario("api.feature", "User should get a random Chuck norris Joke.")
+# def test_api():
+#     pass
+scenarios("../features/api.feature")
 
 
 @given(parsers.parse('The API endpoint is "{url}"'), target_fixture="api")
-def api_endpoint(url, get_request_context):
-    target = {"url": url, "request_context": get_request_context}
+def api_endpoint(url, request_context):
+    target = {"url": url, "request_context": request_context}
     return target
 
 
